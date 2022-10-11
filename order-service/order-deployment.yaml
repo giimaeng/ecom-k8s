@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-deployment
+  namespace: ecom
+  labels:
+    app: order
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order
+  template:
+    metadata:
+      labels:
+        app: order
+    spec:
+      containers:
+      - name: order
+        image: ccro1307/test:order
+        ports:
+        - containerPort: 8501
+        env:
+        - name: spring.zipkin.base-url
+          value: "http://zipkin:9411"
+        - name: eureka.client.serviceUrl.defaultZone
+          value: "http://discovery-service:8761/eureka/"
+        - name: spring.datasource.url
+          value: "jdbc:mariadb://mariadb:3306/mydb"
+        - name: logging.file
+          value: "/api-logs/orders-ws.log"
+      
