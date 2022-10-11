@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-deployment
+  namespace: ecom
+  labels:
+    app: config
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: config
+  template:
+    metadata:
+      labels:
+        app: config
+    spec:
+      containers:
+      - name: config
+        image: ccro1307/test:config
+        ports:
+        - containerPort: 8888
+        env:
+        - name: spring.rabbitmq.host
+          value: "rabbitmq"
+        - name: spring.profiles.active
+          value: "default"
