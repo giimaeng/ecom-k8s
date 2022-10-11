@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: item-deployment
+  namespace: ecom
+  labels:
+    app: item
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: item
+  template:
+    metadata:
+      labels:
+        app: item
+    spec:
+      containers:
+      - name: item
+        image: ccro1307/test:item
+        ports:
+        - containerPort: 8502
+        env:
+        - name: eureka.client.serviceUrl.defaultZone
+          value: "http://discovery-service:8761/eureka/"
+        - name: logging.file
+          value: "/api-logs/catalogs-ws.log"
