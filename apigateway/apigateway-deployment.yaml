@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apigateway-deployment
+  namespace: ecom
+  labels:
+    app: apigateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apigateway
+  template:
+    metadata:
+      labels:
+        app: apigateway
+    spec:
+      containers:
+      - name: apigatewayapigateway
+        image: ccro1307/test:apigateway
+        ports:
+        - containerPort: 8000
+        env:
+        - name: spring.cloud.config.uri
+          value: "http://config-service:8888"
+        - name: spring.rabbitmq.host
+          value: "rabbitmq"
+        - name: eureka.client.serviceUrl.defaultZone
+          value: "http://discovery-service:8761/eureka/"
