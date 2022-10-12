@@ -5,7 +5,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app.kubernetes.io/name: c-rabbitmq
+    app.kubernetes.io/name: rabbitmq
   ports:
     - port: 5000
       targetPort: 15672
