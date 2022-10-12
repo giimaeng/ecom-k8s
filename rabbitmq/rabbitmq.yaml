@@ -1,7 +1,7 @@
 apiVersion: rabbitmq.com/v1beta1
 kind: RabbitmqCluster
 metadata:
-  name: c-rabbitmq
+  name: rabbitmq
 spec:
   replicas: 1
   resources:
