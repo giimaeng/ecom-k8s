@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: discovery
-        image: ccro1307/test:discovery
+        image: parkchansu/discovery-service:1.0
         ports:
         - containerPort: 8761
         env:
