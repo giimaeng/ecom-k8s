@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: item
-        image: parkchansu/item-service:1.0
+        image: ccro1307/dtest:item
         ports:
         - containerPort: 8502
         env:
