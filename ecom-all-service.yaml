@@ -7,9 +7,11 @@ spec:
   selector:
     app: all
   ports:  
-    - port: 8000
+    - name: apigateway
+      port: 8000
       targetPort: 8000
       nodePort: 30701
-    - port: 8761
+    - name: discovery
+      port: 8761
       targetPort: 8761
       nodePort: 30700
