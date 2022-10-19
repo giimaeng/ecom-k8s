@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-example
+  namespace: ecom
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /test                     
+        pathType: Prefix
+        backend:
+          service:
+            name: test-service               
+            port:
+              number: 80
+      - path: /customer-svc                     
+        pathType: Prefix
+        backend:
+          service:
+            name: customer-service               
+            port:
+              number: 8500
+      - path: /discovery                     
+        pathType: Prefix
+        backend:
+          service:
+            name: discovery-service               
+            port:
+              number: 8761
+      - path: /                     
+        pathType: Prefix
+        backend:
+          service:
+            name: apigateway-service               
+            port:
+              number: 8000
