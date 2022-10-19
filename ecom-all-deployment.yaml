@@ -24,7 +24,7 @@ spec:
         - name: spring.cloud.config.uri
           value: "http://config-service:8888"
           
-      containers:
+ 
       - name: config
         image: ccro1307/dtest:config
         ports:
@@ -35,7 +35,7 @@ spec:
         - name: spring.profiles.active
           value: "default"  
   
-      containers:
+   
       - name: apigatewayapigateway
         image: ccro1307/dtest:apigateway
         ports:
@@ -48,7 +48,7 @@ spec:
         - name: eureka.client.serviceUrl.defaultZone
           value: "http://discovery-service:8761/eureka/"
       
-      containers:
+   
       - name: customer
         image: ccro1307/dtest:customer
         ports:
@@ -65,7 +65,7 @@ spec:
         - name: logging.file
           value: "/api-logs/users-ws.log"
           
-      containers:
+
       - name: item
         image: ccro1307/dtest:item
         ports:
@@ -76,7 +76,7 @@ spec:
         - name: logging.file
           value: "/api-logs/catalogs-ws.log"
           
-      containers:
+ 
       - name: order
         image: ccro1307/dtest:order
         ports:
