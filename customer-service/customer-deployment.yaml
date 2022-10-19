@@ -17,12 +17,10 @@ spec:
     spec:
       containers:
       - name: customer
-        image: parkchansu/customer-service:1.0
+        image: ccro1307/dtest:customer
         ports:
         - containerPort: 8500
         env:
-        - name: spring.cloud.config.uri
-          value: "http://config-service:8888"
         - name: spring.cloud.config.uri
           value: "http://config-service:8888"
         - name: spring.rabbitmq.host
