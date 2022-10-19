@@ -1,0 +1,94 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: all-deployment
+  namespace: ecom
+  labels:
+    app: all
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: all
+  template:
+    metadata:
+      labels:
+        app: all
+    spec:
+      containers:
+      - name: discovery
+        image: ccro1307/dtest:discovery
+        ports:
+        - containerPort: 8761
+        env:
+        - name: spring.cloud.config.uri
+          value: "http://config-service:8888"
+          
+      containers:
+      - name: config
+        image: ccro1307/dtest:config
+        ports:
+        - containerPort: 8888
+        env:
+        - name: spring.rabbitmq.host
+          value: "rabbitmq"
+        - name: spring.profiles.active
+          value: "default"  
+  
+      containers:
+      - name: apigatewayapigateway
+        image: ccro1307/dtest:apigateway
+        ports:
+        - containerPort: 8000
+        env:
+        - name: spring.cloud.config.uri
+          value: "http://config-service:8888"
+        - name: spring.rabbitmq.host
+          value: "rabbitmq"
+        - name: eureka.client.serviceUrl.defaultZone
+          value: "http://discovery-service:8761/eureka/"
+      
+      containers:
+      - name: customer
+        image: ccro1307/dtest:customer
+        ports:
+        - containerPort: 8500
+        env:
+        - name: spring.cloud.config.uri
+          value: "http://config-service:8888"
+        - name: spring.rabbitmq.host
+          value: "rabbitmq"
+        - name: spring.zipkin.base-url
+          value: "http://zipkin:9411"
+        - name: eureka.client.serviceUrl.defaultZone
+          value: "http://discovery-service:8761/eureka/"
+        - name: logging.file
+          value: "/api-logs/users-ws.log"
+          
+      containers:
+      - name: item
+        image: ccro1307/dtest:item
+        ports:
+        - containerPort: 8502
+        env:
+        - name: eureka.client.serviceUrl.defaultZone
+          value: "http://discovery-service:8761/eureka/"
+        - name: logging.file
+          value: "/api-logs/catalogs-ws.log"
+          
+      containers:
+      - name: order
+        image: ccro1307/dtest:order
+        ports:
+        - containerPort: 8501
+        env:
+        - name: spring.zipkin.base-url
+          value: "http://zipkin:9411"
+        - name: eureka.client.serviceUrl.defaultZone
+          value: "http://discovery-service:8761/eureka/"
+        - name: spring.datasource.url
+          value: "jdbc:mariadb://mariadb:3306/mydb"
+        - name: logging.file
+          value: "/api-logs/orders-ws.log"
+          
+          
