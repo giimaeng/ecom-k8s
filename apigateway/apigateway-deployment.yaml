@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: apigatewayapigateway
-        image: parkchansu/discovery-service:1.0
+        image: ccro1307/dtest:apigateway
         ports:
         - containerPort: 8000
         env:
