@@ -1,0 +1,43 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: ecom-gateway
+  namespace: ecom
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: ecom
+  namespace: ecom
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - ecom-gateway
+  http:
+  - match:
+    - uri:
+        exact: /customer-svc
+#     - uri:
+#         prefix: /
+#     - uri:
+#         exact: /login
+#     - uri:
+#         exact: /logout
+#     - uri:
+#         prefix: /api/v1/products
+    route:
+    - destination:
+        host: customer
+        port:
+          number: 9080
