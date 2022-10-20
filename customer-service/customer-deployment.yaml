@@ -19,7 +19,7 @@ spec:
       - name: customer
         image: ccro1307/dtest:customer
         ports:
-        - containerPort: 8500
+        - containerPort: 9080
         env:
         - name: spring.cloud.config.uri
           value: "http://config-service:8888"
