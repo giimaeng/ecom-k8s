@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: config
-        image: ccro1307/dtest:config
+        image: ccro1307/test:config19
         ports:
         - containerPort: 8888
         env:
