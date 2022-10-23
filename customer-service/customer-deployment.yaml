@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: customer
-        image: ccro1307/dtest:customer
+        image: ccro1307/test:customer19
         ports:
         - containerPort: 9080
         env:
