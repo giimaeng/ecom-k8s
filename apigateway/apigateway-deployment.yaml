@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: apigatewayapigateway
-        image: ccro1307/dtest:apigateway
+        image: ccro1307/test:apigateway19
         ports:
         - containerPort: 8000
         env:
