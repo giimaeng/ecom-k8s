@@ -1,0 +1,34 @@
+#PV
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: db-pv-volume
+  namespace: ecom
+  labels:
+    type: local
+spec:
+  storageClassName: db-storage-class
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/data/k8s/db/"
+
+-----
+
+#PVC
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: db-pv-claim
+  namespace: ecom
+spec:
+  storageClassName: db-storage-class
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
