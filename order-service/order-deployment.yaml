@@ -16,7 +16,7 @@ spec:
         app: order
     spec:
       containers:
-      - name: order
+      - name: order-service
         image: ccro1307/test:order19
         ports:
         - containerPort: 8501
