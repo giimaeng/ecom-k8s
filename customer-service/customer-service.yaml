@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: customer-svc
+  name: customer
   namespace: ecom
 spec:
   selector:
