@@ -8,7 +8,6 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: db-storage-class
   capacity:
     storage: 10Gi
   accessModes:
