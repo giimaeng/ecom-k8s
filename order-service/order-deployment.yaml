@@ -21,10 +21,10 @@ spec:
         ports:
         - containerPort: 8501
         env:
-        - name: spring.zipkin.base-url
-          value: "http://zipkin:9411"
         - name: eureka.client.serviceUrl.defaultZone
           value: "http://discovery-service:8761/eureka/"
+        - name: spring.zipkin.base-url
+          value: "http://zipkin:9411"
         - name: spring.datasource.url
           value: "jdbc:mariadb://mariadb:3306/mydb"
         - name: logging.file
