@@ -16,7 +16,7 @@ spec:
         app: item
     spec:
       containers:
-      - name: item
+      - name: item-service
         image: ccro1307/test:item19
         ports:
         - containerPort: 8502
