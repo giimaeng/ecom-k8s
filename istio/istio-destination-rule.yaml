@@ -9,7 +9,7 @@ spec:
   - name: discovery
     labels:
       app: discovery      
-##
+---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
@@ -21,7 +21,7 @@ spec:
   - name: config
     labels:
       app: config
-##
+---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
@@ -33,7 +33,7 @@ spec:
   - name: apigateway
     labels:
       app: apigateway
-##
+---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
@@ -45,7 +45,7 @@ spec:
   - name: customer
     labels:
       app: customer
-##
+---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
@@ -57,7 +57,7 @@ spec:
   - name: order
     labels:
       app: order
-##
+---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
@@ -70,5 +70,5 @@ spec:
     labels:
       app: item
 
-##
+
 
