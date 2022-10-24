@@ -16,7 +16,7 @@ spec:
         app: config
     spec:
       containers:
-      - name: config-service
+      - name: config
         image: ccro1307/test:config19
         ports:
         - containerPort: 8888
