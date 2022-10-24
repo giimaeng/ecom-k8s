@@ -16,7 +16,7 @@ spec:
         app: customer
     spec:
       containers:
-      - name: customer
+      - name: customer-service
         image: ccro1307/test:customer19
         ports:
         - containerPort: 9080
