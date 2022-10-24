@@ -16,7 +16,7 @@ spec:
         app: discovery
     spec:
       containers:
-      - name: discovery-service
+      - name: discovery
         image: ccro1307/test:discovery19
         ports:
         - containerPort: 8761
