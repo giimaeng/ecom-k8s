@@ -16,7 +16,6 @@ spec:
   hostPath:
     path: "/data/k8s/db/"
 
------
 
 #PVC
 
