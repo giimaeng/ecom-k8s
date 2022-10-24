@@ -23,12 +23,12 @@ spec:
         volumeMounts:
         - name: mariadb-persistent-storage
           mountPath: /var/lib/mysql
-       env:
-        - name: MYSQL_ROOT_PASSWORD
-         valueFrom:
-           secretKeyRef:
-             name: mariadb-secret 
-             key: password 
+      env:
+      - name: MYSQL_ROOT_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: mariadb-secret 
+            key: password 
       volumes:
       - name: mariadb-persistent-storage
         persistentVolumeClaim:
