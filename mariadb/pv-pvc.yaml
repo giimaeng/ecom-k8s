@@ -33,5 +33,5 @@ spec:
       storage: 10Gi
   selector:
     matchLables:
-      tpye: local
+      type: local
   storageClassName: ""
