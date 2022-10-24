@@ -27,7 +27,7 @@ spec:
   http:
   - match:
     - uri:
-        exact: /customer-svc
+        exact: /
 #     - uri:
 #         prefix: /
 #     - uri:
@@ -38,6 +38,6 @@ spec:
 #         prefix: /api/v1/products
     route:
     - destination:
-        host: customer
+        host: apigateway
         port:
-          number: 9080
+          number: 8000
