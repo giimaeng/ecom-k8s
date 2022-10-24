@@ -31,6 +31,6 @@ spec:
     requests:
       storage: 10Gi
   selector:
-    matchLables:
+    matchLabels:
       type: local
   storageClassName: ""
