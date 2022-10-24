@@ -1,60 +1,74 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: customer-svc
+  name: discovery
   namespace: ecom
 spec:
-  host: customer-svc
+  host: discovery
   subsets:
-  - name: customer-svc
+  - name: discovery
+    labels:
+      app: discovery      
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: config
+  namespace: ecom
+spec:
+  host: config
+  subsets:
+  - name: config
+    labels:
+      app: config
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: apigateway
+  namespace: ecom
+spec:
+  host: apigateway
+  subsets:
+  - name: apigateway
+    labels:
+      app: apigateway
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: customer
+  namespace: ecom
+spec:
+  host: customer
+  subsets:
+  - name: customer
     labels:
       app: customer
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: order
+  name: order-svc
   namespace: ecom
 spec:
-  host: order
+  host: order-svc
   subsets:
   - name: order
     labels:
       app: order
 ---
-# apiVersion: networking.istio.io/v1alpha3
-# kind: DestinationRule
-# metadata:
-#   name: ratings
-#   namespace: ecom
-# spec:
-#   host: ratings
-#   subsets:
-#   - name: v1
-#     labels:
-#       version: v1
-#   - name: v2
-#     labels:
-#       version: v2
-#   - name: v2-mysql
-#     labels:
-#       version: v2-mysql
-#   - name: v2-mysql-vm
-#     labels:
-#       version: v2-mysql-vm
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: item
+  namespace: ecom
+spec:
+  host: item
+  subsets:
+  - name: item
+    labels:
+      app: item
+
 ---
-# apiVersion: networking.istio.io/v1alpha3
-# kind: DestinationRule
-# metadata:
-#   name: details
-#   namespace: ecom
-# spec:
-#   host: details
-#   subsets:
-#   - name: v1
-#     labels:
-#       version: v1
-#   - name: v2
-#     labels:
-#       version: v2
----
+
