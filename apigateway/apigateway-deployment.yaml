@@ -16,7 +16,7 @@ spec:
         app: apigateway
     spec:
       containers:
-      - name: apigatewayapigateway
+      - name: apigateway-service
         image: ccro1307/test:apigateway19
         ports:
         - containerPort: 8000
