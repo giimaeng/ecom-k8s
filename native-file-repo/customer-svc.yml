@@ -1,15 +1,18 @@
+
 spring:
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:testdb
     username: sa
-    password: '{cipher}AYB3CAWu74pMmL5voxpfD68J2kiz/H7vEpCwDvSUpDfPZmHuDEByaL/bueAnYte9Je8WtP9eaHO5yST0HV87FZ4dm6XmpnayYvmNSOqixS7JFv02gHbU7H7rKYpnWNcwy7YgY+3b5zer0tg41xLQvQmPsbYslzG0s0Y6Cav1wCNrmMYDZMp/Ntso604dqTEuBjc1QBabDqXPs5uTchRzgHP5l805xdvlr1HQodkQ9WU8cNahhe6ESFeVErOuw1YZlQtX/e1VLti0ItH2KqtSD9vqkkjk1xLVj8J2ktXcnDQk30+kyS4Rb5wqmnkkaF1OB4ye+p9N0BxlVayA7J00gEbQY383VDHY2SNJLKXB2IhO+yV414AAaq7mtTkz0pSjRrj2l9X9rWhY45wGJMAz4um62L3/aCJi9UgCX32b/viM6PgvmEtuBi3lElWfztDbeNeE/Zw+m8aSHRpF7PaeIFtbgxc+CjJYnvjJnP3MuJ54H5WK+uvlBgpDEvKjoNXltS/WapvScSY4JA6GsUZDqfQqpTHJ4/b59nxEnFX3+eGYYVtZP0Pzw93rY5JSHhbBChY='
+    password: '{cipher}AYB491xECo/Gy82E/G6r8MR94eIb/dZRAiBY1DqzYHzIIU0lyZvB+tQUFQ3B2D8QoOdY82/Y9WbAYXtxDUM3TrFJuHnYQ2ZH+rmf7sqV9pZfCVD2+1eQ3PHgyeeBx0Heq8ffBi/0AOI2Uf+Ekoj85KLrdyb/Wk/Yp7UshdVYCg8rKLFZRh/Ivev3qJ8SkaFVgnvwLY5ZlsueVsrQoD+5Qn1M7aq6xcbnSRdbUYcr1Baw7UbWUghGwGS97TDWjwUMjgGwNaAlSIeazHn9s+0df/BnEoHuMUlM63Pfv5hedNWF+/Ts6mBtzy6vyigLW/E0EaFYSuOgaMAYj2sSZ1Aw9Zmrve4oGSe5IQGyxNfzciipl1Ts8t/Ka5rRkVX1ZbLz2b8Qsx2ao/l6VQJ1a7CThRoNHweZz22AxULcv2Osxm1D2fYu4RrcWJgnlt088u7EBhEG3BXTz4qfyCVc0eIc9EDgovRDiei6u1Evj1W/4xzJPjgcGKLzSiSTrx295CUTo2Z0e+zAnBISB7B7gZcCXRfHaW+gZQoLBso/iUX77KQT+g=='
 token:
   expiration_time: 864000000
   secret: user-token_native_customer-svc
 
 gateway:
-  ip: 192.168.1.10
+  ip: 172.18.0.5
 
 order_svc:
-  url: http://order-svc/order-svc/%s/orders 
+  url: http://ORDER-SVC/order-svc/%s/orders 
+  exception:
+    orders_is_empty: There is no item.
