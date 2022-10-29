@@ -8,7 +8,7 @@ spec:
     istio: ingressgateway
   servers:
   - port:
-      number: 8000
+      number: 80
       name: http
       protocol: HTTP
     hosts:
@@ -25,19 +25,33 @@ spec:
   gateways:
   - ecom-gateway
   http:
-  - match:
+  - name: customer-svc
+    match:
     - uri:
-        exact: /
+        exact: /customer-svc/customers
 #     - uri:
-#         prefix: /
+#         exact: /customer-svc/login
 #     - uri:
 #         exact: /login
 #     - uri:
 #         exact: /logout
 #     - uri:
-#         prefix: /api/v1/products
+#         prefix: /api/v1/products 
     route:
     - destination:
-        host: apigateway
-        port:
-          number: 8000
+        host: customer.ecom.svc.cluster.local
+#         port:
+#           number: 9080
+    corsPolicy:
+      allowMethods:
+      - POST
+  - name: customer-svc    
+    match:
+    - uri:
+        exact: /customer-svc/login
+    route:
+    - destination:
+        host: customer.ecom.svc.cluster.local
+    corsPolicy:
+      allowMethods:
+      - GET
